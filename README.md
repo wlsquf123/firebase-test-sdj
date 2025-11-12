@@ -2,9 +2,9 @@
 
 ## 프로젝트 개요
 - React 기반 웹 애플리케이션
-- Tailwind CSS를 사용한 UI 스타일링
-- Firebase를 통한 인증, 데이터 저장, 사진 업로드 지원
-- 기능
+- Tailwind CSS 사용
+- Firebase를 통한 인증, 데이터 저장, 이미지 업로드 지원
+- 주요 기능
   - 상품 리스트 조회 및 상세 페이지
   - 장바구니 기능
   - 사용자 인증 및 접근 제한
@@ -15,80 +15,114 @@
 
 ---
 
-## 프로젝트 구조
-
-/src
-/components
-MyPage.jsx
-ProductDetail.jsx
-ProductList.jsx
-CustomLabel.jsx
-DialogComponents.jsx
-/ui
-button.jsx
-card.jsx
-checkbox.jsx
-separator.jsx
-App.js
-index.js
-/package.json
-/README.md
-
 
 ---
 
 ## 주요 컴포넌트 및 기능
 
-### 1. `App.js`
+### 1. App.js
 - 페이지 상태(`currentPage`) 관리
-- 페이지 이동: 랜딩 → 홈 → 로그인 등
-- 이벤트 핸들러: `handleNavigate`, `handleAddToCart`, `handleProductClick`
-- 주요 문제 해결:
-  - `handleNavigate`/`onNavigate` undefined 오류 수정
+- 페이지 이동: 랜딩 → 홈 → 로그인
+- 장바구니, 상품 클릭 등 이벤트 핸들러 포함
 
-### 2. `ProductList.jsx`
+### 2. ProductList.jsx
 - 상품 리스트 렌더링
-- 장바구니 담기 기능
-- 상품 클릭 시 상세 페이지 이동
+- 장바구니 담기 및 상세페이지 이동 기능
 
-### 3. `ProductDetail.jsx`
+### 3. ProductDetail.jsx
 - 선택한 상품 상세 정보 표시
-- 사용자 접근 제한: 로그인 여부 확인 후 페이지 이동
-- 이미지 관련 문제 처리:
-  - 빈 `src`로 인한 다운로드 오류
-  - React에서 이미지 조건부 렌더링 적용
+- 로그인한 사용자만 접근 가능
 
-### 4. `MyPage.jsx`
+### 4. MyPage.jsx
 - 사용자 정보 표시
-- Firebase 기반 데이터 가져오기
-- 인증된 사용자만 접근 가능
-- 문제 해결:
-  - `userId` undefined 오류 수정
-  - React Hook 규칙 위반 오류(`useState` 조건적 호출) 해결
+- Firebase에서 사용자 데이터 불러오기
+- 로그인 필요 시 안내
 
-### 5. Dialog 및 UI 컴포넌트
-- Tailwind + Lucide React 아이콘 사용
-- `Dialog`, `Button`, `Card`, `Checkbox`, `Separator` 등 재사용 UI 구성
+### 5. UI 컴포넌트
+- Tailwind + Lucide React 아이콘 기반
+- Button, Card, Dialog, Checkbox, Separator 등 재사용 가능
 
 ---
 
 ## Firebase 연동
 - 사용자 인증
 - 상품 데이터 CRUD
-- 사진 업로드
-- 보안 규칙 설정 문제:
-  - 기본 규칙: 모두 허용 → 추후 제한 필요
+- 이미지 업로드
+- 보안 규칙: 현재 기본 허용, 추후 제한 필요
 
 ---
 
 ## 스타일링
-- Tailwind CSS 기반 Grid, Flex 활용
-- 버튼/카드/다이얼로그 등 UI 구성
-- 배송 옵션 및 재고 상태 표시 UI
+- Tailwind 기반 Grid, Flex 레이아웃
+- 버튼, 카드, 다이얼로그 UI 구성
+- 배송 옵션 및 재고 상태 표시
 
 ---
 
 ## 미해결 / 주의 사항
 - 이미지 관련 오류 처리 필요
 - Firebase 보안 규칙 강화 필요
-- Markdown으로 프로젝트 전체 코드 자동 정리 스크립트 가능
+- 필요 시 프로젝트 전체 코드 자동 Markdown 생성 가능
+
+---
+
+# 오늘 내용
+
+### 1. 주제 선정 (프로젝트 아이디어 구상)
+- 인증, 데이터베이스 활용
+- 주제 분야: 커뮤니티, 소셜, 미디어, 게임, 개인 생산성 등
+- 세부 주제: 프로젝트 핵심 기능과 흐름 구상
+
+### 2. 핵심 기능
+- 주제에 대한 핵심 기능 나열
+- 서비스 이용 흐름 예시: 로그인 → 데이터 생성 → 저장 확인 → 데이터 사용
+
+### 3. 대상
+- 서비스 이용 대상과 BM 설계
+
+---
+
+### **주제 : 상품 판매 사이트**
+### **서비스명: 쇼피 (Shopi)**
+
+### **핵심 기능**
+1. 사용자 인증 (Firebase Authentication: 회원가입, 로그인, 소셜 로그인)
+2. 상품 목록 관리 (Firebase Firestore 활용)
+3. 장바구니 기능
+4. 주문 처리 및 결제 시스템 (Stripe, PayPal 등)
+5. 상품 검색 및 필터
+6. 주문 내역 및 배송 추적
+7. 리뷰 및 평가 시스템
+
+### **서비스 흐름**
+1. 회원가입/로그인
+2. 상품 탐색/검색
+3. 장바구니 추가
+4. 결제 및 주문
+5. 주문 확인 및 배송 추적
+6. 상품 리뷰 작성
+
+### **대상**
+- 소상공인 또는 개인 판매자
+- 일반 소비자
+
+### **BM 설계**
+- 판매 수수료
+- 프리미엄 기능 (상품 등록, 우선 노출)
+- 광고 수익
+
+### **Firebase 활용 포인트**
+- Authentication: 간편 로그인
+- Firestore: 실시간 상품 목록, 주문 처리
+- Cloud Functions: 결제 처리, 주문 상태 자동화
+- Hosting: 사이트 배포
+- Analytics: 사용자 행동 분석
+
+### **장점**
+- 확장성: 소규모 시작 후 기능 확장 가능
+- 사용자 경험: 간편 로그인, 실시간 업데이트
+- 수익 모델: 판매 수수료, 광고, 프리미엄 기능
+
+---
+
+figma 로그인 → 프로젝트 추가 → 설계
